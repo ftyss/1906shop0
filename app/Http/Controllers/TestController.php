@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\DB;
 
 class TestController extends Controller
 {
@@ -21,5 +22,12 @@ class TestController extends Controller
         $val=Redis::get($key);
 
         echo "val:".$val;
+    }
+
+    public function mysql1()
+    {
+        $list=DB::table('nav')->first();
+        var_dump($list);
+
     }
 }
